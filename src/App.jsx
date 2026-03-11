@@ -2,11 +2,16 @@ import { useState, useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Exterior from "./components/Exterior"
-import Categories from "./components/Categories"
 import Products from "./components/Products"
-import CartModal from "./components/CartModal"
 import Location from "./components/Location"
 import Footer from "./components/Footer"
+import VideoSection from "./components/VideoSection"
+import Lenis from "lenis"
+const lenis = new Lenis()
+requestAnimationFrame(function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+})
 
 export default function App() {
   const [cart, setCart] = useState([])
@@ -50,15 +55,8 @@ export default function App() {
       <Navbar totalItems={totalItems} onCartClick={() => setCartOpen(true)} />
       <Hero />
       <Exterior />
-      <Categories category={category} setCategory={setCategory} />
+      <VideoSection /> 
       <Products category={category} addToCart={addToCart} />
-      <CartModal
-        open={cartOpen}
-        cart={cart}
-        onClose={() => setCartOpen(false)}
-        onRemove={removeFromCart}
-        onCheckout={checkout}
-      />
       <Location />
       <Footer />
     </div>

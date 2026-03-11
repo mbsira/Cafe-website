@@ -1,31 +1,62 @@
+import { useState, useEffect } from "react"
+
 export default function Hero() {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => setLoaded(true), 100)
+  }, [])
+
   return (
-    <section id="about" className="h-[100svh] md:h-[750px] w-full relative overflow-hidden mt-20">
-      
-      <img
-        src="https://images.unsplash.com/photo-1742492522850-5ce980d9d137?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1170"
-        alt="Coffee Image"
-        className="absolute w-full h-full object-cover brightness-[60%] blur-sm z-0"
-      />
+    <section id="about" style={{
+      position: "relative", width: "100%", height: "100vh",
+      overflow: "hidden",
+    }}>
 
-      <div className="reveal relative h-full flex flex-col justify-center items-center text-center text-white z-10 px-6">
-        <h1 className="text-[2rem] md:text-[3.5rem] mb-4 text-[#f8e9d0] font-bold leading-tight">
-          Brewed with Passion, Served with Heart
-        </h1>
-        <p className="text-sm md:text-base leading-relaxed max-w-[600px] text-[#f5f5f5]">
-          Indulge in artisan breads, mouthwatering pastries, and handcrafted treats made daily with love.
-          Cozy Cup brings warmth to every sip and comfort to every corner.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
-          <button className="px-9 py-4 rounded-3xl font-bold border-2 border-[#d6b28e] text-[#d6b28e] bg-transparent hover:bg-[#d6b28e] hover:text-[#1a0f0a] transition-all duration-300">
-            Order Now
-          </button>
-          <button className="px-9 py-4 rounded-3xl font-bold border-2 border-[#d6b28e] bg-[#d6b28e] text-[#1a0f0a] hover:bg-transparent hover:text-[#d6b28e] transition-all duration-300">
-            Find Us
-          </button>
-        </div>
-      </div>
+     <video autoPlay muted loop playsInline preload="none" style={{
+  position: "absolute", inset: 0,
+  width: "100%", height: "100%",
+  objectFit: "cover", zIndex: 0,
+  filter: "brightness(0.5) saturate(0.85)",
+}}>
+  <source src="https://www.pexels.com/download/video/2909916/" type="video/mp4" />
+</video>
 
+      <div style={{
+        position: "absolute", inset: 0, zIndex: 1,
+        background: "linear-gradient(to bottom, transparent 60%, rgba(5,3,2,0.5) 100%)"
+      }} />
+
+      <span style={{
+        position: "absolute", bottom: "14rem", left: "2.5rem",
+        zIndex: 3,
+        fontFamily: "'Jost', sans-serif",
+        fontSize: "clamp(3.8rem, 2vw, 1.4rem)",
+        fontWeight: 300, letterSpacing: "0.08em",
+        color: "#ffffff",
+        opacity: loaded ? 1 : 0,
+        letterSpacing: 1,
+        transform: loaded ? "translateY(0)" : "translateY(12px)",
+        transition: "all 0.9s ease 0.5s",
+      }}>cozy cup</span>
+
+      {/* Bottom-right — italic word */}
+      <span style={{
+        position: "absolute", bottom: "14rem", right: "45%",
+        zIndex: 3,
+        fontFamily: "'Cormorant Garamond', serif",
+        fontSize: "clamp(3.8rem, 2vw, 1.4rem)",
+        fontWeight: 400, fontStyle: "italic",
+        letterSpacing: "0.05em",
+        color: "#ffffff",
+        opacity: loaded ? 1 : 0,
+        transform: loaded ? "translateY(0)" : "translateY(12px)",
+        transition: "all 0.9s ease 0.7s",
+      }}>café</span>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Jost:wght@300;400&display=swap');
+      `}</style>
     </section>
   )
 }
