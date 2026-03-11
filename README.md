@@ -11,7 +11,7 @@ A brand website for Cozy Cup Café built using **React**, **Vite**, and **Tailwi
 ![Home Page](./cafe-homepic.png)
 
 ### Menu
-![Menu Page](./cafe-menu-page.png)
+![Menu Page](./cafe-menupic.png)
 
 ---
 
