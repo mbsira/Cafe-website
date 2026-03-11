@@ -8,10 +8,9 @@ A brand website for Cozy Cup Café built using **React**, **Vite**, and **Tailwi
 ## Preview
 
 ### Home
-![Home Page](./cafe-homepic.png)
-
+![Home Page](./src/screenshots/cafe-homepic.png)
 ### Menu
-![Menu Page](./cafe-menupic.png)
+![Menu Page](./src/screenshots/cafe-menupic.png)
 
 ---
 
