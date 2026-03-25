@@ -135,22 +135,22 @@ export default function Products({ category, addToCart }) {
         }} />
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-        gap: "1px",
-        alignItems: "stretch",
-        maxWidth: "1200px", margin: "0 auto",
-        background: "rgba(214,178,142,0.08)",
-        border: "1px solid rgba(214,178,142,0.08)",
-      }}>
-        {filtered.map(product => (
-          <div key={product.id} style={{ background: "#080604", display: "flex" }}>
-            <ProductCard product={product} addToCart={addToCart} />
-          </div>
-        ))}
-      </div>
-
+              <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "repeat(auto-fit, minmax(150px, 1fr))" : "repeat(3, 1fr)",
+          gap: "15px", // Use a real gap to prevent overlap
+          width: "100%",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "0",
+          overflow: "hidden" // Keeps everything inside the container
+        }}>
+          {filtered.map(product => (
+            <div key={product.id} style={{ width: "100%" }}>
+              <ProductCard product={product} addToCart={addToCart} />
+            </div>
+          ))}
+        </div>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap');
       `}</style>
